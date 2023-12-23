@@ -1,0 +1,156 @@
+
+HIBERNATE
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1}What is Hibernate and  why do we use it?
+
+Hibernate is a Java framework that simplifies the development of Java application to interact with the database. 
+It is an open source, lightweight, ORM (Object Relational Mapping) tool.
+Hibernate implements the specifications of JPA (Java Persistence API) for data persistence.
+
+ORM -> An ORM tool simplifies the data creation, data manipulation and data access. 
+	   It is a programming technique that maps the object to the data stored in the database.
+	   
+	   
+	   Diagram-
+	   ------------------------------------------------
+	   
+	   Java Application -> Object -> ORM -> DATABASE
+	   
+	   -------------------------------------------------
+	   
+	   
+	ADVANTAGE of Hibernate over JDBC:
+		It was JDBC (Java Database Connectivity) which was used as the traditional method for connecting a Java application to a database.
+		JDBC connections were causing tedious problems as it required many lines of code for mapping the database with an application.
+
+		This tedious process was soon overcome with the emergence of ORM (Object Relational Mapping). ORM frameworks provided an easy 
+		implementation for connecting object-oriented applications with databases. ORM required only a few lines of code for the mapping process.
+	   
+	   
+	   
+	   ->1. ORM
+		Hibernate ORM easily solves the data mismatch found between the object oriented classes of an application and relational database. 
+		ORM connects these two with ease through the use of the XML mapping file. It enables to gain complete control over the application 
+		as well as the database design. This feature makes Hibernate flexible and powerful.
+		
+	   ->2. Transparent Persistence
+		Hibernate’s transparent persistence ensures the automatic connection between the application’s objects with the database tables. 
+		This feature prevents developers from writing lines of connection code. Transparent persistence enables hibernate to reduce development
+		time and maintenance cost.
+		
+	   ->3. Database independent
+		Hibernate is database independent. It can be used to connect with any database like Oracle, MySQL, Sybase and DB2 to name a few.
+		This cross database portability of Hibernate is easily achieved by changing a parameter ‘database dialect’ in the configuration file.
+		Database independency is considered as one of the major advantages of Hibernate.
+	   
+	   ->4. HQL
+		Hibernate supports a powerful query language called HQL (Hibernate Query Language). This query language is more powerful than SQL 
+		and is completely object oriented. HQL’s advanced features like pagination and dynamic profiling are not present in SQL.
+		HQL can be used to implement some of the prominent object oriented concepts like inheritance, polymorphism and association.
+		
+	    ->5. Dual-layer Caching
+		Hibernate supports both first level and second level caching mechanisms. The first level caching is associated with Session object which is
+		used by default. The second level caching is related to the Session Factory object.
+		Through caching concept, Hibernate retains the objects in cache to reduce repeated hits to the database. This feature makes Hibernate highly 
+		scalable and optimizes the application’s performance.
+	   
+	    ->6. Version Property
+		Hibernate supports optimistic locking through its version property feature. This functionality supports multiple transactions without affecting
+		one another.For example, when two or more users try to alter a database entity at the same time, the version field avoids the conflict and gives 
+		preference to the user who commits the changes first. The other user will be prompted with an error message and will be asked to restart the process.
+		
+		->7. Open Source
+		Hibernate is available as an open source software with zero cost product license. This light weight software can be downloaded from its source website 
+		hibernate.org. The latest version of Hibernate that can be downloaded is 4.3.10.
+	   
+	    ->8. Scalability
+		Hibernate is highly scalable. It adapts itself in any environment. It may be an intranet application with few hundreds of users or large critical application 
+		with thousands of users. Hibernate supports both the applications equally.
+		
+		->9. Easy to Learn
+		Hibernate is developer friendly. It is easy to learn and implement. As the framework takes care of the changes made to the database automatically, a developer’s work
+		is reduced to a great extent.
+	   
+What is JPA?
+
+		Java Persistence API (JPA) is a Java specification that provides 
+		certain functionality and standard to ORM tools. 
+		The javax.persistence package contains the JPA classes and interfaces.  
+	   
+	   
+		What are Annotation?
+		Java Annotation is a tag that represents the metadata i.e. attached with class,
+		interface, methods or fields to 
+		indicate some additional information which can be used by java compiler and JVM.
+
+
+Annotation based hibernate programing language?
+
+	@entity - @Entity annotation marks this class as an entity.
+
+	@Table -  @Table annotation specifies the table name where data 
+			  of this entity is to be persisted. If you don't use @Table annotation,
+			  hibernate will use the class name as the table name by default.
+			
+	@ID  - 	  @Id annotation marks the identifier for this entity	.
+
+
+	@cOLUMN - @Column annotation specifies the details of the column for this 
+			  property or field. If @Column annotation is not specified, property 
+			  name will be used as the column name by default.	
+
+
+	@Transient - This annotation is used to indicate that a field should not be persisted
+				to the the databse. This is useful when you have a field in your entity 
+				class that you want to execude from the database mapping.
+
+				
+				
+What is session management?
+	In Hibernate, session management refers to the process of creating, managing, and closing sessions with a database.
+	A session represents a single-threaded unit of work and is used to perform database operations.
+
+	
+	Configuration - It specifies details about  database , including the class, connection, URL, username, and password
+					This information is essential for hibernate to establish connection.Also, Different database has variations
+					in SQL syntax and hibernate need to know the specific dialect to generate appropriate SQL statement.
+			
+	
+	Session Factory :- It is a factory for creating sessions. It is a heavyweight and thread-safe object that should be
+			instantiated once for an application. It holds configuration data and caches metadata that is used by all 
+			sessions 
+
+	Sessions - It is a lightweight and non-thread-safe object that represents a single unit of work with the database.
+			Sessions are opened from the session factory and should be closed when they are no longer needed.
+			
+	Transaction:-Sessions are often used within a transaction, which represents  series of operations that should be
+			 treated as a single unit of work. Transactions ensures data consistency and integrity.
+			 
+	Connection management:- Sessions in hibernate abstract away the underlying database connection details.
+						Hibernate takes care of opening and closing connections as needed.
+						
+						
+						
+What are cookies?
+	In context of java Servlets, cookies are small pieces of data that a web server sends to the user's web browser
+	for the purpose of maintaining session information or user preferences across multiple requests. Cookies are stored
+	on the client side and are sent back to the server with subsequent request.
+
+	1.Creation and sending - Cookies are created on the server side and sent to the clients browser using the Set-Cookie HTTP
+							 header in the response.
+							 
+	2.Storage on the client side - Once received by the browser, cookies are stored on the client side. They are sent back to
+								   the server with every subsequent request made to the same domain.
+								   
+	3.Attributes - Cookies can have various attributes suck as a name, value, expiration data, domain, path, etc.
+	
+	4.Usage in servlet - In servelet, we can create and send cookies using the Cookies class.
+							for example- Cookies userCookie = new Cookie("username","john_doe");
+										 response.addCookie(userCookie);
+										 
+	5.Reading Cookies - Servlet can retrieve cookies sent by the client using the request.addCookie(userCookie);
+	
+	6.Session management - In java servlet, session management using cookies typically involves the use of cookies to store a unique 
+							

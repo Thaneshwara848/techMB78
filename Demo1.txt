@@ -1,0 +1,233 @@
+GIT : 
+
+Source code management (SCM) is used to track modifications to a source code repository. SCM tracks a running history of changes to a code base and helps resolve conflicts when merging updates from multiple contributors. SCM is also synonymous with Version control.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans
+ xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xmlns:p="http://www.springframework.org/schema/p"  
+ xsi:schemaLocation="http://www.springframework.org/schema/beans  
+ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+ 	
+ 	<bean id="perBean" class="om.Person">
+ 	
+	</bean>
+</beans>
+
+ApplicationContext context= new ClassPathXmlApplicationContext("ApplicationCOnext.xml");
+		Person p = (Person)context.getBean("perBean");
+
+Resource resource=new ClassPathResource("applicationContext.xml");  
+BeanFactory factory=new XmlBeanFactory(resource);  
+
+
+
+
+
+		Spring 
+				Core 
+				Hibernate 
+				AOP 	
+				MVC 
+				JDBC 
+				Boot
+					Web Sevices : 
+							SOAP :SOAP stands for Simple Object Access Protocol.
+									
+									SOAP APIs are limited to using XML 
+	
+							Rest : Stands for REpresentational State Transfer.			
+									
+								Most common format is JSON, ,XML, plain text, HTML
+								@RestController	
+									@Getmapping
+									@Post,PUT , Delete
+					Data JPA 
+					Cloud 
+					batch 
+					Security
+					etc...!
+
+
+				TOmcat 
+				Jboss
+				GlassFish
+				IBM 
+					Eureka 
+					Zuul 
+						RabbitMQ
+						kafaka
+						Doker 
+						Jinkins 
+						kubernatics 
+						SOnarCube 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.sql.*;  
+class MysqlCon{  
+public static void main(String args[]){  
+try{  
+Class.forName("com.mysql.jdbc.Driver");  
+Connection con=DriverManager.getConnection(  
+"jdbc:mysql://localhost:3306/sonoo","root","root");  
+//here sonoo is database name, root is username and password  
+Statement stmt=con.createStatement();  
+ResultSet rs=stmt.executeQuery("select * from emp");  
+while(rs.next())  
+System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));  
+con.close();  
+}catch(Exception e){ System.out.println(e);}  
+}  
+}  
+
+
+
+
+java project : 
+	JDBC : jar files manually 
+
+Dynimic Web project : 
+	all jars : 
+			we were adding manually 
+
+Mavan Project : 
+		
+		Jar: download from 
+				Maven Reposotary : https://mvnrepository.com/
+
+Create : 
+		Maven Project : 
+			
+
+
+
+
+	JDBC 
+
+			insert records: 
+				Statemtnt 
+				Prepared Statment : 
+							insert into employee values(?,?,?,?,?);
+							delete from employee where id=  ? 
+							seletct * frmo employee where id =100; 
+
+						SQL 
+
+					Mysql : 
+						Employee
+							As developer we have to create a tableee	
+
+
+	Hibernate : 
+		hibernate itself it will create a table 
+		
+		EMploee  e = new EMployee();
+
+		save(e);
+
+		delete(100);
+
+		load(100); get(100);
+
+		setID=100;
+		setSalary=50000;
+
+		update(e);
+		
+			HQL : hibernate query lang 
+
+Fast Developement 
+automacatiall table crerateion 
+indepedent qury : mysql . oracler . sql server 
+we can reduce the complexity 
+
+
+
+
+
+
+
+
+Java 
+	
+	JDBC(SQL) --------- Hibernate( HQL ) -----------JPA (JPQL)
+	manuly 			cfg			persist.xml
+		
+		insert		save			persist();
+		read		load			find()
+		delete		delete			revome();
+		update		update			merge();
+
+
+Install this 
+
+Postman  : 
+STS version 4:
+
+
+Core : 
+		java 
+		basics: loops , coond, opertors, string , obj, wraper class ,etc...!
+		OOPs
+		EH
+		MT
+		Collections
+JDBC 
+Servlet 
+JSP 
+
+html 
+css 
+Bootstracp 
+
+Hibernate 
+JPA 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
